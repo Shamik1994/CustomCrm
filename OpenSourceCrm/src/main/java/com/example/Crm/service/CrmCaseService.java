@@ -17,7 +17,7 @@ public class CrmCaseService {
 	public CrmCase insertCaseCrm(CrmCase crmCase) {
 		return crmCaseRepo.save(crmCase);
 	}
-
+	
 	public List<CrmCase> getCasebyTenantCustomer(int tenantId, String customerId) {
 		return crmCaseRepo.findCasesByTenantAndCustomer(tenantId, customerId);
 	}

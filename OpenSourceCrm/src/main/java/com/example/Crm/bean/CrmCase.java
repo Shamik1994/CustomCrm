@@ -3,27 +3,38 @@ package com.example.Crm.bean;
 import java.sql.Date;
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
+@Table(name = "CRM_CASE")
 public class CrmCase {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_details_seq_gen")
+	@SequenceGenerator(name = "user_details_seq_gen", sequenceName = "USER_DETAIL_SEQ", allocationSize = 1)
+	@Column(name = "CASE_ID")
 	private int caseId;
+	@Column(name = "TENANT_ID")
 	private int tenantId;
+	@Column(name = "CUSTOMER_ID")
 	private String customerId;
+	@Column(name = "DATE_CREATED")
 	private LocalDate dateCretaed;
+	@Column(name = "DATE_UPDATED")
 	private Date dateUpdated;
+	@Column(name = "STAGE")
 	private String stage;
+	@Column(name = "ISSUE_DESCRIPTION")
 	private String issueDescription;
+	@Column(name = "CUSTOMER_COMMENT")
 	private String customerComment;
+	@Column(name = "RESOLUTION_COMMENT")
 	private String resolutionComment;
 
 	/*

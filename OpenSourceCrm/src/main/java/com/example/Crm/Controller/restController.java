@@ -61,7 +61,7 @@ public class restController {
 		response.put("caseId", crm.getCaseId());
 		return ResponseEntity.status(HttpStatus.CREATED).body(response);
 	}
-
+	
 	@GetMapping
 	@RequestMapping("/api/cases/v1")
 	public List<CrmCase> getCasesByTenantAndCustomer(@RequestParam int tenantId, @RequestParam String customerId) {
@@ -70,7 +70,7 @@ public class restController {
 		// System.out.println("crmCase"+crmCase);
 		return crmCase;
 	}
-
+	
 	@PostMapping
 	@RequestMapping("/api/createUser/v1")
 	public ResponseEntity<Map<String, String>> createUser(@RequestBody String reqJson) throws JsonMappingException, JsonProcessingException {
