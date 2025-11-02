@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cases List</title>
+</head>
+<body>
+    <h1>All Cases</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Issue</th>
+        </tr>
+        <tr th:each="case : ${cases}">
+            <td th:text="${case.caseId}"></td>
+            <td th:text="${case.issueDescription}"></td>
+        </tr>
+    </table>
+</body>
+</html>
