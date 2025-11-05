@@ -10,7 +10,7 @@ import com.example.Crm.bean.CrmCase;
 
 public interface CrmCaseRepo extends JpaRepository<CrmCase, Integer> {
 
-	@Query(value = "SELECT * FROM CRM_CASE WHERE TENANT_ID = :tenantId AND CUSTOMER_ID = :customerId", nativeQuery = true)
-	List<CrmCase> findCasesByTenantAndCustomer(@Param("tenantId") int tenantId, @Param("customerId") String customerId);
+	@Query(value = "SELECT * FROM CRM_CASE WHERE TENANT_NAME = :tenantName AND CUSTOMER_ID = :customerId", nativeQuery = true)
+	List<CrmCase> findCasesByTenantAndCustomer(@Param("tenantName") String tenantName, @Param("customerId") String customerId);
 
 }

@@ -10,4 +10,5 @@ import com.example.Crm.bean.Tenant;
 public interface TenantRepository extends JpaRepository<Tenant, Integer> {
 	@Query(value = "SELECT TENANTID FROM TENANT WHERE TENANTNAME = :name", nativeQuery = true)
     Integer findTenantIdByName(@Param("name") String tenantName);
+	
 }

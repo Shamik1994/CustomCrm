@@ -36,6 +36,8 @@ public class CrmCase {
 	private String customerComment;
 	@Column(name = "RESOLUTION_COMMENT")
 	private String resolutionComment;
+	@Column(name = "TENANT_NAME")
+	private String tenantName;
 
 	/*
 	 * @ManyToOne
@@ -117,13 +119,23 @@ public class CrmCase {
 	public void setTenantId(int tenantId) {
 		this.tenantId = tenantId;
 	}
+	
+	public String getTenantName() {
+		return tenantName;
+	}
+
+	public void setTenantName(String tenantName) {
+		this.tenantName = tenantName;
+	}
 
 	@Override
 	public String toString() {
 		return "CrmCase [caseId=" + caseId + ", tenantId=" + tenantId + ", customerId=" + customerId + ", dateCretaed="
 				+ dateCretaed + ", dateUpdated=" + dateUpdated + ", stage=" + stage + ", issueDescription="
 				+ issueDescription + ", customerComment=" + customerComment + ", resolutionComment=" + resolutionComment
-				+ "]";
+				+ ", tenantName=" + tenantName + "]";
 	}
+
+	
 
 }

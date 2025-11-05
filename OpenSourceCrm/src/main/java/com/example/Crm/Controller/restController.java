@@ -56,6 +56,7 @@ public class restController {
 		crm.setStage(crmCaseModel.getStage());
 		crm.setTenantId(tenantId);
 		crm.setDateCretaed(LocalDate.now());
+		crm.setTenantName(crmCaseModel.getTenantName());
 		Map<String, Object> response = new HashMap<>();
 		crm = crmCaseService.insertCaseCrm(crm);
 		response.put("caseId", crm.getCaseId());
@@ -64,9 +65,9 @@ public class restController {
 	
 	@GetMapping
 	@RequestMapping("/api/cases/v1")
-	public List<CrmCase> getCasesByTenantAndCustomer(@RequestParam int tenantId, @RequestParam String customerId) {
+	public List<CrmCase> getCasesByTenantAndCustomer(@RequestParam String tenantName, @RequestParam String customerId) {
 		List<CrmCase> crmCase = new ArrayList<>();
-		crmCase = crmCaseService.getCasebyTenantCustomer(tenantId, customerId);
+		crmCase = crmCaseService.getCasebyTenantCustomer(tenantName, customerId);
 		// System.out.println("crmCase"+crmCase);
 		return crmCase;
 	}
